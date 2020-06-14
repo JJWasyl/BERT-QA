@@ -1,2 +1,12 @@
 numpy
 matplotlib
+tqdm
+boto3
+requests
+regex
+sentencepiece
+sacremoses
+tensorflow
+# torch===1.5.0 -f https://download.pytorch.org/whl/torch_stable.html
+# torchvision===0.6.0 -f https://download.pytorch.org/whl/torch_stable.html
+# pytorch-transformers

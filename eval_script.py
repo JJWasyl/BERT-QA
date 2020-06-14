@@ -2,7 +2,7 @@
 
 In addition to basic functionality, we also compute additional statistics and
 plot precision-recall curves if an additional na_prob.json file is provided.
-This file is expected to map question ID's to the model's predicted probability
+This file is expected to map question ID's to the code's predicted probability
 that a question is unanswerable.
 """
 import argparse
@@ -248,6 +248,7 @@ def main():
   f1_thresh = apply_no_ans_threshold(f1_raw, na_probs, qid_to_has_ans,
                                      OPTS.na_prob_thresh)
   out_eval = make_eval_dict(exact_thresh, f1_thresh)
+
   if has_ans_qids:
     has_ans_eval = make_eval_dict(exact_thresh, f1_thresh, qid_list=has_ans_qids)
     merge_eval(out_eval, has_ans_eval, 'HasAns')
@@ -261,6 +262,7 @@ def main():
                                   qid_to_has_ans, OPTS.out_image_dir)
     histogram_na_prob(na_probs, has_ans_qids, OPTS.out_image_dir, 'hasAns')
     histogram_na_prob(na_probs, no_ans_qids, OPTS.out_image_dir, 'noAns')
+
   if OPTS.out_file:
     with open(OPTS.out_file, 'w') as f:
       json.dump(out_eval, f)

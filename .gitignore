@@ -3,3 +3,6 @@
 
 # Data
 data/
+
+# pretrained models
+pretrained_models/
